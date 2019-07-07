@@ -1,6 +1,6 @@
 import {createStore} from 'redux';
 
-
+// Setting up redux store.
 const store=createStore((state={count:0},action)=>{
 
       switch(action.type)
@@ -29,12 +29,12 @@ const store=createStore((state={count:0},action)=>{
       };
 
 });
-
+// Watching changes.
 store.subscribe(()=>{
       console.log(store.getState())
 });
 
-
+// Action Generators.
 const incrementCount=({incrementBy=1}={})=>({
       type:'INCREMENT',
       incrementBy:incrementBy
@@ -53,7 +53,7 @@ const setCount=({setcount=0}={})=>({
       set:setcount
 });
 
-
+// Bringing changes.
 store.dispatch(incrementCount());
 store.dispatch(incrementCount());
 store.dispatch(incrementCount());
