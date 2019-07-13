@@ -9,6 +9,7 @@ const AddExpensePage=(props)=>(
             <h2>Add Expense</h2>
             <ExpenseForm onSubmit={(expense)=>{
                   props.dispatch(addExpense(expense));
+                  props.history.push('/');//Redirecting to home page.
             }}/>
       </div>
 );
