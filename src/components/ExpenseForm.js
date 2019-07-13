@@ -1,16 +1,13 @@
 import React from 'react';
 import moment from 'moment';
-// import 'react-dates/initialize';
-// import 'react-dates/lib/css/_datepicker.css';
-// import {SingleDatePicker} from 'react-dates';
-// import 'react-dates/lib/css/_datepicker.css';
-
+import ModernDatepicker from 'react-modern-datepicker';
 export default class ExpenseForm extends React.Component{
 
       state={
             description:'',
             note:'',
-            amount:''
+            amount:'',
+            createdAt:moment().format('DD-MM-YYYY')
       };
 
       onDescriptionChange=(e)=>{
@@ -37,6 +34,9 @@ export default class ExpenseForm extends React.Component{
             
       };
 
+      onDateChange=(date)=>{
+            this.setState({createdAt:date});
+      };
 
       render(){
             return (
@@ -61,7 +61,16 @@ export default class ExpenseForm extends React.Component{
                               value={this.state.note}
                               onChange={this.onNoteChange}
                               ></textarea>
-                              <button>Add Expens  e</button>
+
+                              <ModernDatepicker
+                              date={this.state.createdAt}
+                              format={'DD-MM-YYYY'}
+                              showBorder
+                              onChange={date => this.onDateChange(date)}
+                              placeholder={'Select a date'}
+                              />
+
+                              <button>Add Expense</button>
                         </form>
                   </div>
             );
