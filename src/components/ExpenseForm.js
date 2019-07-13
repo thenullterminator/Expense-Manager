@@ -5,13 +5,18 @@ import ModernDatepicker from 'react-modern-datepicker';
 
 export default class ExpenseForm extends React.Component{
 
-      state={
-            description:'',
-            note:'',
-            amount:'',
-            createdAt:moment(),
-            error:''
-      };
+      constructor(props)
+      {
+            super(props);
+            
+            this.state={
+                  description:props.expense !== undefined? props.expense.description:'',
+                  note:props.expense!== undefined? props.expense.note:'',
+                  amount:props.expense!== undefined? props.expense.amount.toString():'',
+                  createdAt:props.expense!== undefined? moment(props.expense.createdAt):moment(),
+                  error:''
+            };
+      }
 
       onDescriptionChange=(e)=>{
             this.setState({

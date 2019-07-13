@@ -13,9 +13,13 @@ const expenseReducer=(state=expenseDefaultState,action)=>{
                         if(expense.id===action.id)
                         {
                               return{
-                                    ...state,
+                                    ...expense,
                                     ...action.updates
-                              }
+                              };
+                        }
+                        else
+                        {
+                              return expense;
                         }
                   });
             default:
