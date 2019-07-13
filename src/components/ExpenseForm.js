@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import ModernDatepicker from 'react-modern-datepicker';
 
-console.log(moment().valueOf());
+
 export default class ExpenseForm extends React.Component{
 
       state={
@@ -38,9 +38,11 @@ export default class ExpenseForm extends React.Component{
       };
 
       onDateChange=(date)=>{
+            
             if(date)
             {
-                  this.setState({createdAt:date});     
+                  const newdate=date.substring(3,5)+'-'+date.substring(0,2)+'-'+date.substring(6,10);//Consverting into International Standard for js date object.
+                  this.setState({createdAt:moment(new Date(newdate))});     // Creating a moment object date.
             }
       };
 
@@ -63,6 +65,7 @@ export default class ExpenseForm extends React.Component{
                   });
             }
       };
+
 
       render(){
             return (
@@ -90,7 +93,7 @@ export default class ExpenseForm extends React.Component{
                               ></textarea>
 
                               <ModernDatepicker
-                                    date={this.state.createdAt.format('DD-MM-YYYY')}
+                                    date={(this.state.createdAt).format('DD-MM-YYYY')}
                                     format={'DD-MM-YYYY'}
                                     showBorder
                                     onChange={this.onDateChange}
