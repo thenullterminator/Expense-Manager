@@ -11,11 +11,13 @@ import {addExpense} from './Actions/expenses';
 import {setTextFilter} from './Actions/filters';
 import getVisibleExpenses from './selectors/selectors';
 
+
 const store=configStore();
 
-store.dispatch(addExpense({description:'Water Bill',amount:300,createdAt:100}));
-store.dispatch(addExpense({description:'Gas Bill',amount:400,createdAt:900}));
+store.dispatch(addExpense({description:'Water Bill',amount:300,createdAt:1563100512075}));
+store.dispatch(addExpense({description:'Gas Bill',amount:400,createdAt:1563100512075}));
 store.dispatch(addExpense({description:'Air',amount:500,createdAt:100}));
+
 // store.dispatch(setTextFilter('aiR'));
 
 

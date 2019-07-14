@@ -9,7 +9,8 @@ export default ()=>{
             combineReducers({
                   expenses:expenseReducer,
                   filters:filterReducer
-            })
+            }),
+            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // for redux dev tools.
       );
 
       return store;
