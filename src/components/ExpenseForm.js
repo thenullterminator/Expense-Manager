@@ -2,6 +2,9 @@ import React from 'react';
 import moment from 'moment';
 import ModernDatepicker from 'react-modern-datepicker';
 
+// import 'react-dates/initialize';
+// import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+// import 'react-dates/lib/css/_datepicker.css';
 
 export default class ExpenseForm extends React.Component{
 
@@ -104,6 +107,7 @@ export default class ExpenseForm extends React.Component{
                                     onChange={this.onDateChange}
                                     placeholder={'Select a date'}
                               />
+
                               <button>Add Expense</button>
                         </form>
                   </div>

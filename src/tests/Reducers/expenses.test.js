@@ -32,7 +32,7 @@ test('should add  an expense',()=>{
       };
 
       const result=expenseReducer(expenses,{type:'ADD_EXPENSE',expense});
-      expect(result).toEqual([...expenses,expense]]);
+      expect(result).toEqual([...expenses,expense]);
 });
 
 test('should edit expense of an existing id' ,()=>{

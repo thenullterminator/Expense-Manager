@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header correctly 1`] = `
+<div>
+  <h1>
+    Expensify
+  </h1>
+  <p>
+     
+    <NavLink
+      activeStyle={
+        Object {
+          "color": "red",
+        }
+      }
+      exact={true}
+      to="/"
+    >
+      home
+    </NavLink>
+  </p>
+  <p>
+     
+    <NavLink
+      activeStyle={
+        Object {
+          "color": "red",
+        }
+      }
+      to="/create"
+    >
+      create
+    </NavLink>
+  </p>
+  <p>
+     
+    <NavLink
+      activeStyle={
+        Object {
+          "color": "red",
+        }
+      }
+      to="/help"
+    >
+      help
+    </NavLink>
+  </p>
+</div>
+`;
