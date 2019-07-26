@@ -1,10 +1,9 @@
 import React from 'react';
-import moment from 'moment';
-import ModernDatepicker from 'react-modern-datepicker';
 
-// import 'react-dates/initialize';
-// import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
-// import 'react-dates/lib/css/_datepicker.css';
+import moment from 'moment';
+import 'react-dates/initialize';
+import {SingleDatePicker} from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 
 export default class ExpenseForm extends React.Component{
 
@@ -17,7 +16,8 @@ export default class ExpenseForm extends React.Component{
                   note:props.expense!== undefined? props.expense.note:'',
                   amount:props.expense!== undefined? props.expense.amount.toString():'',
                   createdAt:props.expense!== undefined? moment(props.expense.createdAt):moment(),
-                  error:''
+                  error:'',
+                  calenderFocussed:false
             };
       }
 
@@ -49,9 +49,12 @@ export default class ExpenseForm extends React.Component{
             
             if(date)
             {
-                  const newdate=date.substring(3,5)+'-'+date.substring(0,2)+'-'+date.substring(6,10);//Consverting into International Standard for js date object.
-                  this.setState({createdAt:moment(new Date(newdate))});     // Creating a moment object date.
+                  this.setState({createdAt:date});  
             }
+      };
+      onFocusChange=({focused})=>{
+            
+           this.setState({calenderFocussed:focused});
       };
 
       onSubmitForm=(e)=>{
@@ -100,12 +103,14 @@ export default class ExpenseForm extends React.Component{
                                     onChange={this.onNoteChange}
                               ></textarea>
 
-                              <ModernDatepicker
-                                    date={(this.state.createdAt).format('DD-MM-YYYY')}
-                                    format={'DD-MM-YYYY'}
-                                    showBorder
-                                    onChange={this.onDateChange}
-                                    placeholder={'Select a date'}
+                              <SingleDatePicker
+                              date={this.state.createdAt} 
+                              onDateChange={this.onDateChange} 
+                              focused={this.state.calenderFocussed} 
+                              onFocusChange={this.onFocusChange} 
+                              numberOfMonths={1}
+                              isOutsideRange={()=>false}
+                              placeholder={"Select Date"}
                               />
 
                               <button>Add Expense</button>
