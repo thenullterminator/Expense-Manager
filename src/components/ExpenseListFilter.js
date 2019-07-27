@@ -5,7 +5,7 @@ import {setTextFilter,sortByAmount,sortByDate,setStartDate,setEndDate} from '../
 
 
 import 'react-dates/initialize';
-import 'react-dates/lib/css/_datepicker.css';
+
 import {DateRangePicker} from 'react-dates';
 
 class ExpenseListFilter extends React.Component{

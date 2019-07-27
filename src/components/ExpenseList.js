@@ -4,11 +4,20 @@ import moment from 'moment';
 import selectExpenses from '../selectors/selectors';
 import ExpenseListItem from './ExpenseListItem'
 
-const ExpenseList=(props)=>(
+export const ExpenseList=(props)=>(
 
       <div>
-            <p>This is expense list</p>
-            {props.expenses.map((expense,index)=>(<ExpenseListItem key={index} {...expense} />))}
+            {
+                  props.expenses.length === 0 ? 
+                  (
+                        <p>No Expenses</p>
+                  ) 
+                  :
+                  (
+                        props.expenses.map((expense,index)=>(<ExpenseListItem key={index} {...expense} />))
+                  )
+            }
+            
       </div>
 
 );
