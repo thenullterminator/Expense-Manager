@@ -111,7 +111,7 @@ export default class ExpenseForm extends React.Component{
                               numberOfMonths={1}
                               isOutsideRange={()=>false}
                               placeholder={"Select Date"}
-                              />
+                              ></SingleDatePicker>
 
                               <button>Add Expense</button>
                         </form>
