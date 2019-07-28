@@ -3,12 +3,12 @@ import {shallow} from 'enzyme';
 import { AddExpensePage } from '../../components/AddExpensePage.js';
 import expenses from '../fixtures/expenses';
 
-let onSubmit,wrapper,history;
+let AddExpense,wrapper,history;
 
 beforeEach(()=>{
-      onSubmit=jest.fn();
+      AddExpense=jest.fn();
       history={push:jest.fn()};
-      wrapper=shallow(<AddExpensePage onSubmit={onSubmit} history={history}/>);
+      wrapper=shallow(<AddExpensePage AddExpense={AddExpense} history={history}/>);
 });
 
 test('should render Add expense page correctly',()=>{
@@ -18,6 +18,6 @@ test('should render Add expense page correctly',()=>{
 test('should handle onSubmit correctly',()=>{
 
       wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
-      expect(history.push).toHaveBeenCalledWith('/');
-      expect(onSubmit).toHaveBeenCalledWith(expenses[1]);
+      expect(history.push).toHaveBeenLastCalledWith('/');
+      expect(AddExpense).toHaveBeenLastCalledWith(expenses[1]);
 });

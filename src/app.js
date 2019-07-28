@@ -15,7 +15,7 @@ import getVisibleExpenses from './selectors/selectors';
 
 const store=configStore();
 
-store.dispatch(addExpense({description:'Water Billl',amount:300,createdAt:1563100512075}));
+store.dispatch(addExpense({description:'Water Bill',amount:300,createdAt:1563100512075}));
 store.dispatch(addExpense({description:'Gas Bill',amount:400,createdAt:1563100512075}));
 store.dispatch(addExpense({description:'Air',amount:500,createdAt:100}));
 
