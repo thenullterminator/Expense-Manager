@@ -4,10 +4,10 @@ import {setTextFilter,sortByAmount,sortByDate,setStartDate,setEndDate} from '../
 import 'react-dates/initialize';
 import {DateRangePicker} from 'react-dates';
 
-class ExpenseListFilter extends React.Component{
+export class ExpenseListFilter extends React.Component{
 
       state={
-            calenderFocussed:false
+            calenderFocussed:null
       };
       onDateChange=({ startDate, endDate })=>{
             if(startDate){
@@ -50,7 +50,9 @@ class ExpenseListFilter extends React.Component{
 
                         <DateRangePicker
                         startDate={this.props.filters.startDate} 
+                        startDateId='START_DATE'
                         endDate={this.props.filters.endDate} 
+                        endDateId='END_DATE'
                         onDatesChange={this.onDateChange} 
                         focusedInput={this.state.calenderFocussed} 
                         onFocusChange={this.onFocusChange} 
