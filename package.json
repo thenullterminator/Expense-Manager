@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve":"live-server public/",
+    "start":"node server/server.js",
+    "serve": "live-server public/",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
     "build-babel": "babel src/playground/counter.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "test": "jest --config=jest.config.json --watch"
+    "test": "jest --config=jest.config.json --watch",
+    "heroku-postbuild":"npm run build:prod"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
   "homepage": "https://github.com/thenullterminator/indecision-app-Using-React-#readme",
   "dependencies": {
     "css-loader": "^3.0.0",
+    "express": "^4.17.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "live-server": "^1.2.1",
     "moment": "^2.24.0",
